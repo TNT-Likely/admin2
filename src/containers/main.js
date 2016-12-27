@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
 
 const Main = ({}) => (
-	<h1>main</h1>
-	<div>{this.props.children}</div>
+	<div>
+		<h1>main</h1>
+		
+	</div>
 )
 
 Main.propTypes = {

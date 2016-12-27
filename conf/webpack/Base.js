@@ -1,4 +1,4 @@
-'use strict';  // eslint-disable-line
+'use strict'; // eslint-disable-line
 
 /**
  * Webpack configuration base class
@@ -89,110 +89,92 @@ class WebpackBaseConfig {
       },
       entry: './index.js',
       module: {
-        rules: [
-          {
-            enforce: 'pre',
-            test: /\.js?$/,
-            include: this.srcPathAbsolute,
-            loader: 'babel-loader',
-            query: {
-              presets: ['es2015']
-            }
-          },
-          {
-            test: /^.((?!cssmodule).)*\.css$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' }
-            ]
-          },
-          {
-            test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2|ttf|eot|otf)$/,
-            loader: 'file-loader'
-          },
-          {
-            test: /^.((?!cssmodule).)*\.(sass|scss)$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'sass-loader' }
-            ]
-          },
-          {
-            test: /^.((?!cssmodule).)*\.less$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'less-loader' }
-            ]
-          },
-          {
-            test: /^.((?!cssmodule).)*\.styl$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'stylus-loader' }
-            ]
-          },
-          {
-            test: /\.json$/,
-            loader: 'json-loader'
-          },
-          {
-            test: /\.(js|jsx)$/,
-            include: [].concat(
-              this.includedPackages,
-              [this.srcPathAbsolute]
-            ),
-            loaders: [
-              // Note: Moved this to .babelrc
-              { loader: 'babel-loader' }
-            ]
-          },
-          {
-            test: /\.cssmodule\.(sass|scss)$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'sass-loader' }
-            ]
-          },
-          {
-            test: /\.cssmodule\.css$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              }
-            ]
-          },
-          {
-            test: /\.cssmodule\.less$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'less-loader' }
-            ]
-          },
-          {
-            test: /\.cssmodule\.styl$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'stylus-loader' }
-            ]
+        rules: [{
+          enforce: 'pre',
+          test: /\.js?$/,
+          include: this.srcPathAbsolute,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015']
           }
-        ]
+        }, {
+          test: /^.((?!cssmodule).)*\.css$/,
+          loaders: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' }
+          ]
+        }, {
+          test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2|ttf|eot|otf)$/,
+          loader: 'file-loader'
+        }, {
+          test: /^.((?!cssmodule).)*\.(sass|scss)$/,
+          loaders: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
+          ]
+        }, {
+          test: /^.((?!cssmodule).)*\.less$/,
+          loaders: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'less-loader' }
+          ]
+        }, {
+          test: /^.((?!cssmodule).)*\.styl$/,
+          loaders: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'stylus-loader' }
+          ]
+        }, {
+          test: /\.json$/,
+          loader: 'json-loader'
+        }, {
+          test: /\.(js|jsx)$/,
+          include: [].concat(
+            this.includedPackages, [this.srcPathAbsolute]
+          ),
+          loaders: [
+            // Note: Moved this to .babelrc
+            { loader: 'babel-loader' }
+          ]
+        }, {
+          test: /\.cssmodule\.(sass|scss)$/,
+          loaders: [
+            { loader: 'style-loader' }, {
+              loader: 'css-loader',
+              query: cssModulesQuery
+            },
+            { loader: 'sass-loader' }
+          ]
+        }, {
+          test: /\.cssmodule\.css$/,
+          loaders: [
+            { loader: 'style-loader' }, {
+              loader: 'css-loader',
+              query: cssModulesQuery
+            }
+          ]
+        }, {
+          test: /\.cssmodule\.less$/,
+          loaders: [
+            { loader: 'style-loader' }, {
+              loader: 'css-loader',
+              query: cssModulesQuery
+            },
+            { loader: 'less-loader' }
+          ]
+        }, {
+          test: /\.cssmodule\.styl$/,
+          loaders: [
+            { loader: 'style-loader' }, {
+              loader: 'css-loader',
+              query: cssModulesQuery
+            },
+            { loader: 'stylus-loader' }
+          ]
+        }]
       },
       output: {
         path: path.resolve('./dist/assets'),
