@@ -8,13 +8,13 @@ class topNavbar extends React.Component{
         // For smoothly turn on menu
         setTimeout(
             function () {
-                $('#side-menu').fadeIn(500);
+                $('#side-menu').show(500);
             }, 100);
     } else if ($('body').hasClass('fixed-sidebar')) {
         $('#side-menu').hide();
         setTimeout(
             function () {
-                $('#side-menu').fadeIn(500);
+                $('#side-menu').show(500);
             }, 300);
     } else {
         // Remove all inline style from jquery fadeIn function to reset menu state
