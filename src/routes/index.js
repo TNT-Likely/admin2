@@ -1,14 +1,13 @@
-import App from '../containers/App'
+import login from '../containers/login'
 
 const routes = {
   path: '/',
-  component: App,
-  indexRoute: { component: App },
+  component: login,
+  indexRoute: { component: login },
   childRoutes: [
-    { path: 'login', component: App },
-    {
+    { path: 'login', component: login }, {
       path: 'inbox',
-      component: App,
+      component: login,
       childRoutes: [{
         path: 'messages/:id',
         onEnter: ({ params }, replace) => replace(`/messages/${params.id}`)
