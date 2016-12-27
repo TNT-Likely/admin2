@@ -1,4 +1,5 @@
-import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD } from '../constants'
+import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD } from '../constants'
+import fetch from '../utils/fetch'
 
 export function loginUserRequest(token) {
   return {
@@ -6,18 +7,28 @@ export function loginUserRequest(token) {
   }
 }
 
-export function loginUserSuccess(token) {
+export function loginUserSuccess(data) {
   return {
-    type: LOGIN_USER_SUCCESS
+    type: LOGIN_USER_SUCCESS,
+    data
+  }
+}
+
+export function loginUserFailure(token) {
+  return {
+    type: LOGIN_USER_FAILURE
   }
 }
 
 export function loginUser(name, password) {
   return (dispatch) => {
     dispatch(loginUserRequest())
-    setTimeout(e => {
-      dispatch(loginUserSuccess())
-    }, 5000)
+    fetch('/rest/user/login', 'POST', { nameOrEmail: name, password: password }).then(r => {
+      dispatch(loginUserSuccess(r))
+    }).
+    catch(e => {
+      dispatch(loginUserFailure())
+    })
   }
 }
 

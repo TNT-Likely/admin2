@@ -21,7 +21,7 @@ const Login =({isLoading,data,name,password,loginClick,changeName,changePassword
           <div className="form-group">
             <input type="password" className="form-control" placeholder="密码" onInput={e=>{changePassword(e.target.value)}} />
           </div>
-          <button type="submit" disabled={isLoading|| !name || !password?'disabled':''}className="btn btn-primary block full-width m-b" onClick={()=>{loginClick(name)}}>登录</button>
+          <button type="submit" disabled={isLoading|| !name || !password?'disabled':''}className="btn btn-primary block full-width m-b" onClick={()=>{loginClick(name,password)}}>登录</button>
         </div>
       </div>
   </div>
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loginClick: (name, password) => {
-    dispatch(loginUser())
+    dispatch(loginUser(name,password))
   },
   changeName: (text) => {
     dispatch(changeName(text))
