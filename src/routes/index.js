@@ -1,9 +1,10 @@
 import login from '../containers/login'
 import main from '../containers/main'
+import app from '../components/app'
 
 const routes = {
   path: '/',
-  component: main,
+  component: app,
   indexRoute: { component: main },
   childRoutes: [
     { path: 'login', component: login }, {
