@@ -1,38 +1,13 @@
 import React,{} from 'react'
 
 class topNavbar extends React.Component{
-	SmoothlyMenu() {
-    if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
-        // Hide menu in order to smoothly turn on when maximize menu
-        $('#side-menu').hide();
-        // For smoothly turn on menu
-        setTimeout(
-            function () {
-                $('#side-menu').show(500);
-            }, 100);
-    } else if ($('body').hasClass('fixed-sidebar')) {
-        $('#side-menu').hide();
-        setTimeout(
-            function () {
-                $('#side-menu').show(500);
-            }, 300);
-    } else {
-        // Remove all inline style from jquery fadeIn function to reset menu state
-        $('#side-menu').removeAttr('style');
-    }
-}
-
-	handleMinClick(){
-		$("body").toggleClass("mini-navbar")
-		this.SmoothlyMenu()
-	}
 
 	render(){
 		return(
 			<div className="row border-bottom">
         <nav className="navbar navbar-static-top white-bg" role="navigation" >
         <div className="navbar-header">
-            <a className="navbar-minimalize minimalize-styl-2 btn btn-primary " onClick={r=>{this.handleMinClick()}} href="#"><i className="fa fa-bars"></i> </a>
+            <a className="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i className="fa fa-bars"></i> </a>
             <form role="search" className="navbar-form-custom" action="search_results.html">
                 <div className="form-group">
                     <input type="text" placeholder="搜索点什么吧..." className="form-control" name="top-search" id="top-search" />

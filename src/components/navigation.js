@@ -3,9 +3,7 @@ import { Link } from 'react-router'
 
 class navigation extends React.Component{
  componentDidMount() {
- 	$('#side-menu li').on('click',()=>{
- 		$(this).toggleClass('active')
- 	})
+
  }
 
  render() {
