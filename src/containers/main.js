@@ -4,16 +4,25 @@ import React, { PropTypes } from 'react'
 import Navigation from '../components/navigation'
 import RightSliderbar from '../components/rightSidebar'
 import TopNavbar from '../components/topNavbar'
+import Footer from '../components/footer'
 import { logoutUser } from '../actions'
 
-const Main = ({ userInfo,logout }) => (
-	<div id="wrapper">
-			<Navigation userInfo={userInfo} />
-			<div id="page-wrapper" className="gray-bg">
-				<TopNavbar logout={logout}/>
-    	</div>
-	</div>
-)
+class Main extends React.Component {
+	render(){
+		let { userInfo,logout } = this.props
+		
+		return (
+			<div id="wrapper">
+					<Navigation userInfo={userInfo} />
+					<div id="page-wrapper" className="gray-bg">
+						<TopNavbar logout={logout}/>
+							{ this.props.children}
+						<Footer />
+		    	</div>
+			</div>
+		)
+	}
+} 
 
 Main.propTypes = {
 

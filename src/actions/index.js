@@ -3,12 +3,14 @@ import fetch from '../utils/fetch'
 import cookies from 'js-cookie'
 import { browserHistory } from 'react-router'
 
+//登录请求过程
 export function loginUserRequest(token) {
   return {
     type: LOGIN_USER_REQUEST
   }
 }
 
+//登录成功
 export function loginUserSuccess(data) {
   return {
     type: LOGIN_USER_SUCCESS,
@@ -16,12 +18,14 @@ export function loginUserSuccess(data) {
   }
 }
 
+//登录失败
 export function loginUserFailure(token) {
   return {
     type: LOGIN_USER_FAILURE
   }
 }
 
+//登录
 export function loginUser(name, password) {
   return (dispatch) => {
     dispatch(loginUserRequest())
@@ -66,7 +70,9 @@ export function checkUserStatus() {
   return (dispatch) => {
     fetch('/rest/user/status').then(r => {
       dispatch(loginUserSuccess(r))
-      browserHistory.push('/')
+      if (browserHistory.getCurrentLocation().pathname == '/login') {
+        browserHistory.push('/')
+      }
     }).catch(e => {
       browserHistory.push('/login')
     })

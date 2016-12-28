@@ -34,11 +34,10 @@ class navigation extends React.Component{
                     </div>
                 </li>
                 <li className="active">
-                    <a href=""><i className="fa fa-th-large"></i> <span className="nav-label">控制面板</span> <span className="fa arrow"></span></a>
+                    <a href=""><i className="fa fa-th-large"></i> <span className="nav-label">设置</span> <span className="fa arrow"></span></a>
                     <ul className="nav nav-second-level">
-                        <li><Link to="/login">控制面板1</Link></li>
-                        <li className="active"><a href="">控制面板2</a></li>
-                        <li><a href="">控制面板5 <span className="label label-primary pull-right">NEW</span></a></li>
+                        <li className="active"><Link to="/setting/info">个人信息</Link></li>
+                        <li><Link to="/setting/security">安全 <span className="label label-primary pull-right">新</span></Link></li>
                     </ul>
                 </li>
             </ul>
