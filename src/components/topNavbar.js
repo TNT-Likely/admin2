@@ -16,7 +16,7 @@ class topNavbar extends React.Component{
         </div>
             <ul className="nav navbar-top-links navbar-right">
                 <li>
-                    <span className="m-r-sm text-muted welcome-message">Welcome to Youths Admin.</span>
+                    <span className="m-r-sm text-muted welcome-message">欢迎来到Youths管理后台.</span>
                 </li>
                 <li className="dropdown">
                     <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">

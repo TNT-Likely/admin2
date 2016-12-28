@@ -3,6 +3,7 @@ import main from '../containers/main'
 import app from '../containers/app'
 import info from '../containers/setting/info'
 import security from '../containers/setting/security'
+import user from 'containers/data/user'
 
 const routes = {
   path: '/login',
@@ -16,13 +17,16 @@ const routes = {
       component: info,
       onEnter: ({ params }, replace) => {
 
+      },
+      leave: () => {
+
       }
     }, {
       path: '/setting/security',
-      component: security,
-      onEnter: ({ params }, replace) => {
-
-      }
+      component: security
+    }, {
+      path: '/data/user',
+      component: user
     }]
   }]
 }

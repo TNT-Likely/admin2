@@ -38,6 +38,12 @@ class navigation extends React.Component{
                         <li><Link to="/setting/security">安全 <span className="label label-primary pull-right">新</span></Link></li>
                     </ul>
                 </li>
+                <li>
+                    <a href=""><i className="fa fa-database"></i> <span className="nav-label">数据</span> <span className="fa arrow"></span></a>
+                    <ul className="nav nav-second-level">
+                        <li><Link to="/data/user">用户管理</Link></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
