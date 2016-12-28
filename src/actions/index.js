@@ -1,5 +1,6 @@
 import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD } from '../constants'
 import fetch from '../utils/fetch'
+import cookies from 'js-cookie'
 import { browserHistory } from 'react-router'
 
 export function loginUserRequest(token) {
@@ -26,6 +27,9 @@ export function loginUser(name, password) {
     dispatch(loginUserRequest())
     fetch('/rest/user/login', 'POST', { nameOrEmail: name, password: password }).then(r => {
       dispatch(loginUserSuccess(r))
+
+      //设置cookie
+      cookies.set('access_token', r.accessToken)
       browserHistory.push('/')
     }).
     catch(e => {
