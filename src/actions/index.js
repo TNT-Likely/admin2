@@ -1,5 +1,6 @@
 import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD } from '../constants'
 import fetch from '../utils/fetch'
+import { browserHistory } from 'react-router'
 
 export function loginUserRequest(token) {
   return {
@@ -25,6 +26,7 @@ export function loginUser(name, password) {
     dispatch(loginUserRequest())
     fetch('/rest/user/login', 'POST', { nameOrEmail: name, password: password }).then(r => {
       dispatch(loginUserSuccess(r))
+      browserHistory.push('/')
     }).
     catch(e => {
       dispatch(loginUserFailure())
