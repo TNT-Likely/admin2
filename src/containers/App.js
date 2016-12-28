@@ -23,7 +23,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	checkUserStatus: dispatch(checkUserStatus)
+	checkUserStatus: dispatch(checkUserStatus())
 })
 
 export default connect(mapStateToProps)(App)

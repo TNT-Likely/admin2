@@ -35,13 +35,13 @@ class topNavbar extends React.Component{
             <a className="navbar-minimalize minimalize-styl-2 btn btn-primary " onClick={r=>{this.handleMinClick()}} href="#"><i className="fa fa-bars"></i> </a>
             <form role="search" className="navbar-form-custom" action="search_results.html">
                 <div className="form-group">
-                    <input type="text" placeholder="Search for something..." className="form-control" name="top-search" id="top-search" />
+                    <input type="text" placeholder="搜索点什么吧..." className="form-control" name="top-search" id="top-search" />
                 </div>
             </form>
         </div>
             <ul className="nav navbar-top-links navbar-right">
                 <li>
-                    <span className="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                    <span className="m-r-sm text-muted welcome-message">Welcome to Youths Admin.</span>
                 </li>
                 <li className="dropdown">
                     <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -141,8 +141,8 @@ class topNavbar extends React.Component{
 
 
                 <li>
-                    <a href="login.html">
-                        <i className="fa fa-sign-out"></i> Log out
+                    <a href="javascript:;" onClick={r=>{this.props.logout()}}>
+                        <i className="fa fa-sign-out"></i> 登出
                     </a>
                 </li>
                 <li>

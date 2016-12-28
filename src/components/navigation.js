@@ -9,17 +9,18 @@ class navigation extends React.Component{
  }
 
  render() {
-   return (
+    let { userInfo } = this.props
+    return (
 		<nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">
             <ul className="nav metismenu" id="side-menu">
                 <li className="nav-header">
                     <div className="dropdown profile-element"> <span>
-                            <img alt="image" className="img-circle" src="" />
+                             {/*<img alt="image" className="img-circle" src="" />*/}
                              </span>
                         <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">David Williams</strong>
-                             </span> <span className="text-muted text-xs block">Art Director <b className="caret"></b></span> </span> </a>
+                            <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">{userInfo.email}</strong>
+                             </span> <span className="text-muted text-xs block">{userInfo.username} <b className="caret"></b></span> </span> </a>
                         <ul className="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">Profile</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
@@ -29,7 +30,7 @@ class navigation extends React.Component{
                         </ul>
                     </div>
                     <div className="logo-element">
-                        IN+
+                        Y+
                     </div>
                 </li>
                 <li className="active">

@@ -1,4 +1,4 @@
-import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD } from '../constants'
+import { LOGIN_USER_SUCCESS, LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, CHANGE_LOGIN_NAME, CHANGE_LOGIN_PASSWORD, LOGOUT_USER_SUCCESS } from '../constants'
 import fetch from '../utils/fetch'
 import cookies from 'js-cookie'
 import { browserHistory } from 'react-router'
@@ -54,6 +54,13 @@ export function changePassword(text) {
   }
 }
 
+//登出
+export function logoutUserSuccess() {
+  return {
+    type: LOGOUT_USER_SUCCESS
+  }
+}
+
 //用户登录态检查
 export function checkUserStatus() {
   return (dispatch) => {
@@ -62,6 +69,18 @@ export function checkUserStatus() {
       browserHistory.push('/')
     }).catch(e => {
       browserHistory.push('/login')
+    })
+  }
+}
+
+//用户登出
+export function logoutUser() {
+  return (dispatch) => {
+    fetch('/rest/user/logout').then(r => {
+      browserHistory.push('/login')
+      cookies.remove('accessToken')
+    }).catch(e => {
+
     })
   }
 }
