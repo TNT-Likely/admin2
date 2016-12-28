@@ -98,7 +98,7 @@ class WebpackBaseConfig {
             presets: ['es2015']
           }
         }, {
-          test: /^.((?!cssmodule).)*\.css$/,
+          test: /\.css$/,
           loaders: [
             { loader: 'style-loader' },
             { loader: 'css-loader' }
@@ -107,21 +107,21 @@ class WebpackBaseConfig {
           test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2|ttf|eot|otf)$/,
           loader: 'file-loader'
         }, {
-          test: /^.((?!cssmodule).)*\.(sass|scss)$/,
+          test: /\.(sass|scss)$/,
           loaders: [
             { loader: 'style-loader' },
             { loader: 'css-loader' },
             { loader: 'sass-loader' }
           ]
         }, {
-          test: /^.((?!cssmodule).)*\.less$/,
+          test: /\.less$/,
           loaders: [
             { loader: 'style-loader' },
             { loader: 'css-loader' },
             { loader: 'less-loader' }
           ]
         }, {
-          test: /^.((?!cssmodule).)*\.styl$/,
+          test: /\.styl$/,
           loaders: [
             { loader: 'style-loader' },
             { loader: 'css-loader' },
@@ -138,41 +138,6 @@ class WebpackBaseConfig {
           loaders: [
             // Note: Moved this to .babelrc
             { loader: 'babel-loader' }
-          ]
-        }, {
-          test: /\.cssmodule\.(sass|scss)$/,
-          loaders: [
-            { loader: 'style-loader' }, {
-              loader: 'css-loader',
-              query: cssModulesQuery
-            },
-            { loader: 'sass-loader' }
-          ]
-        }, {
-          test: /\.cssmodule\.css$/,
-          loaders: [
-            { loader: 'style-loader' }, {
-              loader: 'css-loader',
-              query: cssModulesQuery
-            }
-          ]
-        }, {
-          test: /\.cssmodule\.less$/,
-          loaders: [
-            { loader: 'style-loader' }, {
-              loader: 'css-loader',
-              query: cssModulesQuery
-            },
-            { loader: 'less-loader' }
-          ]
-        }, {
-          test: /\.cssmodule\.styl$/,
-          loaders: [
-            { loader: 'style-loader' }, {
-              loader: 'css-loader',
-              query: cssModulesQuery
-            },
-            { loader: 'stylus-loader' }
           ]
         }]
       },
