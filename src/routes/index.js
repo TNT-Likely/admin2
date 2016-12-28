@@ -1,6 +1,6 @@
 import login from '../containers/login'
 import main from '../containers/main'
-import app from '../components/app'
+import app from '../containers/app'
 
 const routes = {
   path: '/',

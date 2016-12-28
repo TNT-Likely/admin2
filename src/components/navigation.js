@@ -1,4 +1,4 @@
-import React, {} from 'react'
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 class navigation extends React.Component{
@@ -45,6 +45,10 @@ class navigation extends React.Component{
     </nav>
    )
  }
+}
+
+navigation.PropTypes = {
+  userInfo:PropTypes.object
 }
 
 export default navigation

@@ -29,7 +29,7 @@ export function loginUser(name, password) {
       dispatch(loginUserSuccess(r))
 
       //设置cookie
-      cookies.set('access_token', r.accessToken)
+      cookies.set('accessToken', r.accessToken)
       browserHistory.push('/')
     }).
     catch(e => {
@@ -51,5 +51,17 @@ export function changePassword(text) {
   return {
     type: CHANGE_LOGIN_PASSWORD,
     text
+  }
+}
+
+//用户登录态检查
+export function checkUserStatus() {
+  return (dispatch) => {
+    fetch('/rest/user/status').then(r => {
+      dispatch(loginUserSuccess(r))
+      browserHistory.push('/')
+    }).catch(e => {
+      browserHistory.push('/login')
+    })
   }
 }
