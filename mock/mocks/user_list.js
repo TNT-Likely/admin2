@@ -10,13 +10,13 @@ module.exports = function() {
         username: 'Likely',
         email: '532837139@qq.com',
         emailVerifyed: true,
-        amount: 10000.00
+        amount: '10000.00'
       }, {
         id: '873218372jshadhad',
         username: 'Likely',
         email: '532837139@qq.com',
         emailVerifyed: true,
-        amount: 10000.00
+        amount: '10000.00'
       }]
     }
   }
