@@ -6,6 +6,7 @@ import 'bootstrap.min.css'
 import 'font-awesome.min.css'
 import 'animate.css'
 import 'style.css'
+import 'index.scss'
 
 const Login =({isLoading,data,name,password,loginClick,changeName,changePassword})=>(
   <div className="middle-box text-center loginscreen animated fadeInDown">
