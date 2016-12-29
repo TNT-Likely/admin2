@@ -9,9 +9,11 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux'
 import login from './login'
+import list from './list'
 
 const rootReducer = combineReducers({
-  login
+  login,
+  list
 })
 
 module.exports = rootReducer
