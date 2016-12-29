@@ -1,4 +1,6 @@
 import { FETCH_LIST_REQUEST, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE } from '../constants'
+import fetch from '../utils/fetch'
+
 //数据列表
 export function fetchListRequest() {
   return {
@@ -23,7 +25,7 @@ export function fetchListFailure(error) {
 export function fetchList(api) {
   return dispatch => {
     //开始请求
-    dispatch(fetchListRequest)
+    dispatch(fetchListRequest())
 
     fetch(api).then(r => {
       //请求成功
