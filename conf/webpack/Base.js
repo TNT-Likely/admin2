@@ -85,7 +85,13 @@ class WebpackBaseConfig {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        port: 8000
+        port: 8000,
+        proxy: {
+          '/api': {
+            target: 'http://localhost:8002',
+            secure: false
+          }
+        }
       },
       entry: './index.js',
       module: {
