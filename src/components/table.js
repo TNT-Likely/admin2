@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 class table extends React.Component{
  componentDidMount() {
-
+ 	// this.props.fetchList('/rest/user/list')
  }
 
  render() {

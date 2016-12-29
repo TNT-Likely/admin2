@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
+	// fetchList: api=>dispatch(fetchList(api))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(user)
