@@ -17,6 +17,7 @@ export default (url, type, data) => {
       },
       error: function(err) {
         console.error('api调用失败')
+        reject(err)
       }
     })
   })
