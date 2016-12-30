@@ -6,13 +6,14 @@ import { fetchList } from 'actions/list'
 
 class user extends React.Component{
 	componentDidMount() {
-		
+		let { dispatch } = this.props
+		dispatch(fetchList('/rest/user/list'))
 	}
 
 	render(ReactElement, DOMElement, callback){
-		let { headers,data,totalPages,currentPage,fetchList } = this.props
+		let { headers,data } = this.props
 		return (
-			<Table headers={headers}  data={data} totalPages={totalPages} currentPage={currentPage} title='用户' />
+			<Table headers={headers}  data={data}  title='用户' />
 		)
 	}
 }
@@ -23,13 +24,11 @@ user.propTypes = {
 
 const mapStateToProps = (state) => ({
 	headers: {id:'Id',username:'用户名',email:'邮箱'},
-	data: [{id:'1',username:'sunxiao',email:'532837139@qq.com'}],
-	totalPages: 5,
-	currentPage: 3
+	data: state.list.data
 })
 
 const mapDispatchToProps = (dispatch) => ({
 	// fetchList: api=>dispatch(fetchList(api))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(user)
+export default connect(mapStateToProps)(user)

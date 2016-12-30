@@ -7,10 +7,14 @@ class table extends React.Component{
  }
 
  render() {
- 		let { headers,data,totalPages,currentPage,title } = this.props
+ 		let { headers,title } = this.props
+ 		let { data:rs } =this.props
+ 		let { data,totalPages,currentPage } = rs
+
+ 		if(!headers || !data) return false;
 
  		let keys = Object.keys(headers)//表头
- 
+ 		
  		let pageNations=[]
  		for(var i=0;i<totalPages;i++){
 			pageNations.push(<li key={i} className={i==currentPage?'active':''}><a>{i+1}</a></li>)
@@ -84,10 +88,8 @@ class table extends React.Component{
 }
 
 table.PropTypes = {
-	headers: PropTypes.object.isRequired,
-	data: PropTypes.array.isRequired,
-	totalsPages: PropTypes.number,
-	currentPage: PropTypes.number,
+	headers: PropTypes.object,
+	data: PropTypes.object,
 	title: PropTypes.string
 }
 
