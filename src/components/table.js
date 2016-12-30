@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import Spinner from 'components/spinner'
 
 class table extends React.Component{
  	componentWillMount() {
@@ -24,16 +25,14 @@ class table extends React.Component{
  		
  		let pageNations=[]
  		for(var i=1;i<=totalPages;i++){
-			pageNations.push(<li key={i} className={i==currentPage?'active':''}><a onClick={r=>{fetchList(i)}}>{i}</a></li>)
+ 			let c=i
+			pageNations.push(<li key={i} className={i==currentPage?'active':''}><a onClick={r=>{fetchList(c)}}>{i}</a></li>)
 		}
 
     return (
     	<div className="box">
 			  <div className="row">
-			  	<div className={!isLoading?'hide':''}>
-			  		正在加载...
-			  	</div>
-			    <div className={isLoading?'hide':''}>
+			    <div className="col-sm-12">
 			      <h1></h1>
 			      <div className="table-responsive">
 			        <div className="panel panel-primary">
@@ -48,7 +47,8 @@ class table extends React.Component{
 			            </div>
 			          </div>
 			          <div className="panel-body">
-			          	<table className="table table-striped">
+			          	<Spinner isShow={isLoading}/>
+			          	<table className={`table table-striped ${isLoading?'hide':''}`}>
 						        <thead>
 							        <tr>
 								        {
@@ -70,7 +70,7 @@ class table extends React.Component{
 											}
 						        </tbody>
 						    	</table>
-						    	<nav aria-label="Page navigation">
+						    	<nav>
 									  <ul className="pagination">
 									    <li className={canLastPage?'disabled':''}>
 									      <a href="#" onClick={r=>{fetchList(currentPage-1)}}>
