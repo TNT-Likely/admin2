@@ -1,9 +1,10 @@
 module.exports = function() {
   var list = {
+    "$$delay":"300",
     "code": 0,
     "msg": null,
     "data": {
-      current: 3,
+      currentPage: 3,
       totalPages: 7,
       data: [{
         id: '873218372jshadhad',

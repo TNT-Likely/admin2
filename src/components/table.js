@@ -2,28 +2,38 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 class table extends React.Component{
- componentDidMount() {
- 	// this.props.fetchList('/rest/user/list')
- }
+ 	componentWillMount() {
+ 		this.props.fetchList()
+ 	}
 
- render() {
- 		let { headers,title } = this.props
+  componentDidMount() {
+ 	
+  }
+
+  render() {
+ 		let { headers,title,fetchList,isLoading } = this.props
  		let { data:rs } =this.props
  		let { data,totalPages,currentPage } = rs
 
  		if(!headers || !data) return false;
 
- 		let keys = Object.keys(headers)//表头
+ 		let canLastPage = currentPage==1
+ 		let canNextPage = currentPage==totalPages
+
+ 		let keys = Object.keys(headers)//表头	
  		
  		let pageNations=[]
- 		for(var i=0;i<totalPages;i++){
-			pageNations.push(<li key={i} className={i==currentPage?'active':''}><a>{i+1}</a></li>)
+ 		for(var i=1;i<=totalPages;i++){
+			pageNations.push(<li key={i} className={i==currentPage?'active':''}><a onClick={r=>{fetchList(i)}}>{i}</a></li>)
 		}
 
     return (
     	<div className="box">
 			  <div className="row">
-			    <div className="col-sm-12">
+			  	<div className={!isLoading?'hide':''}>
+			  		正在加载...
+			  	</div>
+			    <div className={isLoading?'hide':''}>
 			      <h1></h1>
 			      <div className="table-responsive">
 			        <div className="panel panel-primary">
@@ -62,16 +72,16 @@ class table extends React.Component{
 						    	</table>
 						    	<nav aria-label="Page navigation">
 									  <ul className="pagination">
-									    <li>
-									      <a href="#">
-									        上一页
+									    <li className={canLastPage?'disabled':''}>
+									      <a href="#" onClick={r=>{fetchList(currentPage-1)}}>
+									       上一页
 									      </a>
 									    </li>
 									    {
 									    	pageNations
 									    }
-									    <li>
-									      <a href="#">
+									    <li className={canNextPage?'disabled':''}>
+									      <a href="#" onClick={r=>{fetchList(currentPage+1)}}>
 									        下一页
 									      </a>
 									    </li>

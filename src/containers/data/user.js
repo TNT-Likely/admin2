@@ -5,15 +5,20 @@ import Table from 'Components/table'
 import { fetchList } from 'actions/list'
 
 class user extends React.Component{
-	componentDidMount() {
+	componentWillMount() {
 		let { dispatch } = this.props
-		dispatch(fetchList('/rest/user/list'))
+		this.fetchList = page=>dispatch(fetchList(`/rest/user/list?page=${page||'1'}`))
+	}
+
+	componentDidMount() {
+		// this.fetchList()
 	}
 
 	render(ReactElement, DOMElement, callback){
-		let { headers,data } = this.props
+		let { headers,data,isLoading } = this.props
+		let fetchList = this.fetchList
 		return (
-			<Table headers={headers}  data={data}  title='用户' />
+			<Table headers={headers}  data={data}  title='用户' fetchList={fetchList} isLoading={isLoading} />
 		)
 	}
 }
@@ -24,7 +29,8 @@ user.propTypes = {
 
 const mapStateToProps = (state) => ({
 	headers: {id:'Id',username:'用户名',email:'邮箱'},
-	data: state.list.data
+	data: state.list.data,
+	isLoading: state.list.isLoading
 })
 
 const mapDispatchToProps = (dispatch) => ({
