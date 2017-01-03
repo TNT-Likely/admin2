@@ -2,12 +2,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
 import Table from 'Components/table'
-import { fetchList } from 'actions/list'
+import { fetchList,addItem } from 'actions/list'
 
 class user extends React.Component{
 	componentWillMount() {
 		let { dispatch } = this.props
 		this.fetchList = page=>dispatch(fetchList(`/rest/user/list?page=${page||'1'}`))
+		this.addItem = data=>dispatch(addItem('/rest/user/add',data))
 	}
 
 	componentDidMount() {
@@ -16,9 +17,8 @@ class user extends React.Component{
 
 	render(ReactElement, DOMElement, callback){
 		let { headers,data,isLoading } = this.props
-		let fetchList = this.fetchList
 		return (
-			<Table headers={headers}  data={data}  title='用户' fetchList={fetchList} isLoading={isLoading} />
+			<Table headers={headers}  data={data}  title='用户' fetchList={this.fetchList} addItem={this.addItem} isLoading={isLoading} />
 		)
 	}
 }

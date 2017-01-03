@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import Spinner from 'components/spinner'
+import Modal from 'Components/modal'
 
 class table extends React.Component{
  	componentWillMount() {
@@ -12,7 +13,7 @@ class table extends React.Component{
   }
 
   render() {
- 		let { headers,title,fetchList,isLoading } = this.props
+ 		let { headers,title,fetchList,isLoading,addItem } = this.props
  		let { data:rs } =this.props
  		let { data,totalPages,currentPage } = rs
 
@@ -92,6 +93,7 @@ class table extends React.Component{
 			      </div>
 			    </div>
 			  </div>
+			  <Modal addItem={addItem} />
 			</div>
     )
  }
