@@ -46,7 +46,7 @@ class modal extends React.Component{
               	this.handleSaveItem()
               }}>{buttonText}</button>
             </div>
-	         </div>
+	        </div>
 	      </div>
 	  	</div>	                      
     )
