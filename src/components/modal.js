@@ -21,31 +21,31 @@ class modal extends React.Component{
       <div className="modal inmodal" id="myModal" style={{display:showModal?'block':'none'}}>
 	      <div className="modal-dialog">
 	      	<div className="modal-content animated bounceInRight">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
-                <h4 className="modal-title">{title}</h4>
-              </div>
-              <div className="modal-body form-horizontal">
-                {
-                	cols.map((i,index)=>{
-                		return  <div className="form-group" key={index}>
-                							<label className="col-sm-3 control-label no-padding-right">
-																{i.text}
-                							</label>
-                							<div className="col-sm-7">
-          											<span className="block input-icon input-icon-right">
-                									<input type="text" ref={i.key} className="form-control" />
-                								</span>
-                							</div>
-                						</div>
-                	})
-                }
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-primary" onClick={r=>{
-                	this.handleSaveItem()
-                }}>{buttonText}</button>
-              </div>
+            <div className="modal-header">
+              <button type="button" className="close" data-dismiss="modal">&times;</button>
+              <h4 className="modal-title">{title}</h4>
+            </div>
+            <div className="modal-body form-horizontal">
+              {
+              	cols.map((i,index)=>{
+              		return  <div className="form-group" key={index}>
+              							<label className="col-sm-3 control-label no-padding-right">
+															{i.text}
+              							</label>
+              							<div className="col-sm-7">
+        											<span className="block input-icon input-icon-right">
+              									<input type="text" ref={i.key} className="form-control" />
+              								</span>
+              							</div>
+              						</div>
+              	})
+              }
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary" onClick={r=>{
+              	this.handleSaveItem()
+              }}>{buttonText}</button>
+            </div>
 	         </div>
 	      </div>
 	  	</div>	                      
