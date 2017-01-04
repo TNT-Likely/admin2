@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import Spinner from 'components/spinner'
 import Modal from 'Components/modal'
-import Message from 'Components/message'
 
 class table extends React.Component{
  	componentWillMount() {
@@ -44,7 +43,7 @@ class table extends React.Component{
 			        	<div className="panel-footer">
 			            <div className="row">
 			              <div className="col-xs-12">
-			                <button type="button" className="btn btn-danger" onClick={r=>{Message.show('Info message', 'info', 2000000)}}>添加 <i className="fa fa-plus"></i> </button>
+			                <button type="button" className="btn btn-danger" onClick={r=>{showModal()}}>添加 <i className="fa fa-plus"></i> </button>
 			              </div>
 			            </div>
 			          </div>

@@ -1,5 +1,6 @@
 import { FETCH_LIST_REQUEST, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE, ADD_ITEM_REQUEST, ADD_ITEM_SUCCESS, ADD_ITEM_FAILURE, SHOW_MODAL } from '../constants'
 import fetch from '../utils/fetch'
+import Message from 'Components/message'
 
 //数据列表
 export function fetchListRequest() {
@@ -68,11 +69,13 @@ export function addItem(api, data) {
     fetch(api, 'POST', data).then(r => {
       //请求成功
       dispatch(addItemSuccess(r))
+      Message.show('添加成功', 'info')
 
     }).catch(e => {
 
       //请求失败
       dispatch(addItemFailure(e))
+      Message.show('添加失败', 'alert')
     })
   }
 }
