@@ -15,10 +15,10 @@ class modal extends React.Component{
   }
 
   render() {
-  	let { title,buttonText,cols,showModal } = this.props
+  	let { title,buttonText,cols,status } = this.props
   	let obj = cols
     return (
-      <div className="modal inmodal" id="myModal" style={{display:showModal?'block':'none'}}>
+      <div className="modal inmodal" id="myModal" style={{display:status.showModal?'block':'none'}}>
 	      <div className="modal-dialog">
 	      	<div className="modal-content animated bounceInRight">
             <div className="modal-header">
@@ -42,7 +42,7 @@ class modal extends React.Component{
               }
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" onClick={r=>{
+              <button type="button" className="btn btn-primary" disabled={status.isSaving} onClick={r=>{
               	this.handleSaveItem()
               }}>{buttonText}</button>
             </div>
@@ -66,7 +66,10 @@ modal.defaultProps = {
 		{"key":"click","text":"测试key3"},
 		{"key":"userId","text":"测试key4"}
 	],
-	showModal:true
+  status:{
+    isSaving:false,
+    showModal:true
+  }
 }
 
 export default modal

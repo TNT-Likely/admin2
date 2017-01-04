@@ -13,7 +13,7 @@ class table extends React.Component{
   }
 
   render() {
- 		let { headers,title,fetchList,isLoading,addItem } = this.props
+ 		let { headers,title,fetchList,isLoading,addItem,status,showModal } = this.props
  		let { data:rs } =this.props
  		let { data,totalPages,currentPage } = rs
 
@@ -43,7 +43,7 @@ class table extends React.Component{
 			        	<div className="panel-footer">
 			            <div className="row">
 			              <div className="col-xs-12">
-			                <button type="button" className="btn btn-danger">添加 <i className="fa fa-plus"></i> </button>
+			                <button type="button" className="btn btn-danger" onClick={r=>{showModal()}}>添加 <i className="fa fa-plus"></i> </button>
 			              </div>
 			            </div>
 			          </div>
@@ -93,7 +93,7 @@ class table extends React.Component{
 			      </div>
 			    </div>
 			  </div>
-			  <Modal addItem={addItem} />
+			  <Modal addItem={addItem} status={status} />
 			</div>
     )
  }

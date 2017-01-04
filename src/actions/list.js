@@ -1,4 +1,4 @@
-import { FETCH_LIST_REQUEST, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE, ADD_ITEM_REQUEST, ADD_ITEM_SUCCESS, ADD_ITEM_FAILURE } from '../constants'
+import { FETCH_LIST_REQUEST, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE, ADD_ITEM_REQUEST, ADD_ITEM_SUCCESS, ADD_ITEM_FAILURE, SHOW_MODAL } from '../constants'
 import fetch from '../utils/fetch'
 
 //数据列表
@@ -74,5 +74,11 @@ export function addItem(api, data) {
       //请求失败
       dispatch(addItemFailure(e))
     })
+  }
+}
+
+export function showModal() {
+  return {
+    type: SHOW_MODAL
   }
 }
