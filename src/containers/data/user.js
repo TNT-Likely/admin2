@@ -39,4 +39,4 @@ const mapDispatchToProps = (dispatch) => ({
 	// fetchList: api=>dispatch(fetchList(api))
 })
 
-export default connect(mapStateToProps)(user)
+module.exports = connect(mapStateToProps)(user)

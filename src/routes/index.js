@@ -1,9 +1,6 @@
 import login from 'containers/login'
 import main from 'containers/main'
 import app from 'containers/app'
-import info from 'containers/setting/info'
-import security from 'containers/setting/security'
-import user from 'containers/data/user'
 
 const routes = {
   path: '/login',
@@ -14,19 +11,25 @@ const routes = {
     component: main,
     childRoutes: [{
       path: '/setting/info',
-      component: info,
-      onEnter: ({ params }, replace) => {
-
-      },
-      leave: () => {
-
+      getComponents(location, callback) {
+        require.ensure([], function(require) {
+          callback(null, require('containers/setting/info'))
+        })
       }
     }, {
       path: '/setting/security',
-      component: security
+      getComponents(location, callback) {
+        require.ensure([], function(require) {
+          callback(null, require('containers/setting/security'))
+        })
+      }
     }, {
       path: '/data/user',
-      component: user
+      getComponents(location, callback) {
+        require.ensure([], function(require) {
+          callback(null, require('containers/data/user'))
+        })
+      }
     }]
   }]
 }
